@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TimelinePage extends StatefulWidget {
+  final String timelineTitle = "TimelinePage";
   @override
   _TimelinePageState createState() => _TimelinePageState();
 }

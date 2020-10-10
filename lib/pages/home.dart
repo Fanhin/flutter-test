@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'timeline_page.dart';
 import 'todolist_page.dart';
 
+import 'package:btn_bar/widgets/add_new_task.dart';
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -11,16 +13,17 @@ class _HomeState extends State<Home> {
   //properties
 
   int currentTab = 0;
-  // final List<Widget> screens = [
-  //   TimelinePage(),
-  //   TodolistPage(),
-  // ];
+  final List<Widget> screens = [
+    TimelinePage(),
+    TodolistPage(),
+  ];
 
   //activity page(Tab)
 
   Widget currentScreen = TimelinePage(); // first create screen
 
   final PageStorageBucket bucket = PageStorageBucket();
+  TimelinePage title;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,13 @@ class _HomeState extends State<Home> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         backgroundColor: Colors.orangeAccent,
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (_) => AddNewTask(isEditMode: false),
+          );
+          
+        },
       ),
 
       //fab position
@@ -45,12 +54,10 @@ class _HomeState extends State<Home> {
         child: Container(
           height: 60,
           child: Row(
-            mainAxisAlignment:MainAxisAlignment.spaceAround ,
-            
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Container(
                 child: MaterialButton(
-                 
                   onPressed: () {
                     setState(
                       () {
@@ -63,14 +70,11 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Icon(Icons.linear_scale,
-                          color:
-                              currentTab == 0 ? Colors.blue : Colors.grey),
+                          color: currentTab == 0 ? Colors.blue : Colors.grey),
                       Text(
                         "Timeline",
                         style: TextStyle(
-                            color: currentTab == 0
-                                ? Colors.blue
-                                : Colors.grey),
+                            color: currentTab == 0 ? Colors.blue : Colors.grey),
                       )
                     ],
                   ),
@@ -78,7 +82,6 @@ class _HomeState extends State<Home> {
               ),
               Container(
                 child: MaterialButton(
-                  
                   onPressed: () {
                     setState(
                       () {
@@ -91,14 +94,11 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Icon(Icons.list,
-                          color:
-                              currentTab == 1 ? Colors.blue : Colors.grey),
+                          color: currentTab == 1 ? Colors.blue : Colors.grey),
                       Text(
                         "TodoList",
                         style: TextStyle(
-                            color: currentTab == 1
-                                ? Colors.blue
-                                : Colors.grey),
+                            color: currentTab == 1 ? Colors.blue : Colors.grey),
                       )
                     ],
                   ),
