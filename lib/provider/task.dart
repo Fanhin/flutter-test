@@ -18,18 +18,18 @@ class Task {
 
 class TaskProvider with ChangeNotifier {
   final List<Task> _todoList = [
-    Task(
-      id: 'task#1',
-      description: 'Create my models',
-      dueDate: DateTime.now(),
-      dueTime: TimeOfDay.now(),
-    ),
-    Task(
-      id: 'task#2',
-      description: 'Add provider',
-      dueDate: DateTime.now(),
-      dueTime: TimeOfDay.now(),
-    ),
+    // Task(
+    //   id: 'task#1',
+    //   description: 'Create my models',
+    //   dueDate: DateTime.now(),
+    //   dueTime: TimeOfDay.now(),
+    // ),
+    // Task(
+    //   id: 'task#2',
+    //   description: 'Add provider',
+    //   dueDate: DateTime.now(),
+    //   dueTime: TimeOfDay.now(),
+    // ),
   ];
 
   List<Task> get itemsList {
